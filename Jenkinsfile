@@ -10,11 +10,17 @@ pipeline {
         COPPY_SCRIPT = "sudo cp -r dist ${BUILD_FOLDER}"
     }
     stages {
-        stage('test') {
+        stage('Clean Dist Folder') {
             steps {
-                sh(script: """ pwd; ls-a;whoami """)
+                sh(script: """sudo su - ${RUN_USER} -c 'rm -rf ${DIST_FOLDER}'""")
             }
         }
-       
+        stage('Build ReactJS') {
+            steps {
+                sh(script: """ ${BUILD_SCRIPT} """)
+                sh(script: """ ${COPPY_SCRIPT} """)
+            }
+
+        }
     }
 }
