@@ -73,7 +73,7 @@ export default function Search({ containerClass, showTitle = true }: SearchProps
         <div className='flex flex-col md:flex-row md:space-x-4 items-start'>
           {/* Destination */}
           <div className='flex flex-col border border-gray-300 p-3 rounded-lg w-full md:w-[400px]'>
-            <div className='text-teal-500 font-bold text-sm md:text-base mb-1 text-left'>Destination1</div>
+            <div className='text-teal-500 font-bold text-sm md:text-base mb-1 text-left'>Destination</div>
             <div className='flex items-center'>
               <input
                 type='text'
