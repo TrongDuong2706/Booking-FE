@@ -16,6 +16,7 @@ export type Room = {
 }
 
 // Đảm bảo rằng result là một mảng của Room
+
 export type RoomResponse = SuccessResponse<Room[]>
 
 export type OneRoomResponse = SuccessResponse<{
