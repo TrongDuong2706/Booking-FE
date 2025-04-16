@@ -10,7 +10,7 @@ class Http {
   constructor() {
     this.accessToken = getAccessTokenFromLS()
     this.instance = axios.create({
-      baseURL: 'http://booking_app:8080/identity/',
+      baseURL: 'http://localhost:8080/identity/',
       timeout: 10000,
       headers: {
         'Content-Type': 'application/json'
