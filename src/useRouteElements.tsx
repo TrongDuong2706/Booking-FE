@@ -21,6 +21,12 @@ import HotelList from './pages/HotelList'
 import DefaultLayoutAdmin from './layout/DefaultLayoutAdmin'
 import HotelAdd from './pages/Admin/AdminHotel/HotelAdd'
 import AdminEditHotel from './pages/Admin/AdminHotel/AdminEditHotel'
+import ListRoom from './pages/Admin/AdminRoom/AdminListRoom'
+import AdminAddRoom from './pages/Admin/AdminRoom/AdminAddRoom'
+import AdminEditRoom from './pages/Admin/AdminRoom/AdminEditRoom'
+import AdminRoute from './components/AdminComponents/AdminRoute/AdminRoute'
+import AdminListBooking from './pages/Admin/AdminBooking/AdminListBooking'
+import AdminDetailBooking from './pages/Admin/AdminBooking/AdminDetailBooking'
 
 export default function useRouteElements() {
   function ProtectedRoute() {
@@ -108,37 +114,84 @@ export default function useRouteElements() {
       path: '/messenger',
       element: <Messenger />
     },
+
     {
-      path: '/admin',
-      element: (
-        <DefaultLayoutAdmin>
-          <AdminDashBoard />
-        </DefaultLayoutAdmin>
-      )
-    },
-    {
-      path: '/admin/hotel-list',
-      element: (
-        <DefaultLayoutAdmin>
-          <AdminHotelList />
-        </DefaultLayoutAdmin>
-      )
-    },
-    {
-      path: '/admin/hotel-add',
-      element: (
-        <DefaultLayoutAdmin>
-          <HotelAdd />
-        </DefaultLayoutAdmin>
-      )
-    },
-    {
-      path: '/admin/hotel-edit/:hotelId',
-      element: (
-        <DefaultLayoutAdmin>
-          <AdminEditHotel />
-        </DefaultLayoutAdmin>
-      )
+      path: '/',
+      element: <AdminRoute />, // Đảm bảo điều hướng đúng
+      children: [
+        {
+          path: '/admin',
+          element: (
+            <DefaultLayoutAdmin>
+              <AdminDashBoard />
+            </DefaultLayoutAdmin>
+          )
+        },
+        {
+          path: '/admin/hotel-list',
+          element: (
+            <DefaultLayoutAdmin>
+              <AdminHotelList />
+            </DefaultLayoutAdmin>
+          )
+        },
+        {
+          path: '/admin/hotel-add',
+          element: (
+            <DefaultLayoutAdmin>
+              <HotelAdd />
+            </DefaultLayoutAdmin>
+          )
+        },
+        {
+          path: '/admin/hotel-edit/:hotelId',
+          element: (
+            <DefaultLayoutAdmin>
+              <AdminEditHotel />
+            </DefaultLayoutAdmin>
+          )
+        },
+        {
+          path: '/admin/room',
+          element: (
+            <DefaultLayoutAdmin>
+              <ListRoom />
+            </DefaultLayoutAdmin>
+          )
+        },
+        {
+          path: '/admin/room-add',
+          element: (
+            <DefaultLayoutAdmin>
+              <AdminAddRoom />
+            </DefaultLayoutAdmin>
+          )
+        },
+        {
+          path: '/admin/room-edit/:roomId',
+          element: (
+            <DefaultLayoutAdmin>
+              <AdminEditRoom />
+            </DefaultLayoutAdmin>
+          )
+        },
+        {
+          path: '/admin/bookings',
+          element: (
+            <DefaultLayoutAdmin>
+              <AdminListBooking />
+            </DefaultLayoutAdmin>
+          )
+        },
+        {
+          path: '/admin/booking-detail/:bookingId',
+          element: (
+            <DefaultLayoutAdmin>
+              <AdminDetailBooking />
+            </DefaultLayoutAdmin>
+          )
+        }
+      ]
     }
   ])
   return routeElements

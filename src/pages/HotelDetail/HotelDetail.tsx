@@ -178,11 +178,12 @@ export default function HotelDetail() {
           </div>
           <div className='flex items-center space-x-2'>
             <div className='text-right'>
-              <p className='text-gray-500 line-through'>{hotelDetail?.phone}</p>
-              <p className='text-2xl font-bold text-blue-500'>US$25</p>
+              <p className='text-gray-500 line-through'>
+                {hotelDetail?.price ? `${Number(hotelDetail.price) + 500000}₫` : ''}
+              </p>{' '}
+              <p className='text-2xl font-bold text-blue-500'>US${hotelDetail?.price}</p>
               <p className='text-sm text-green-500'>We Price Match</p>
             </div>
-            <button className='bg-blue-500 text-white px-4 py-2 rounded-lg'>Select Rooms</button>
           </div>
         </div>
         <div className='flex space-x-2 overflow-hidden'>
@@ -314,8 +315,7 @@ export default function HotelDetail() {
                 </svg>
                 <span>Bữa sáng bao gồm</span>
               </div>
-              <p className='text-md font-semibold mb-4'>Từ {hotelcategory.price} VND</p>
-
+              <p className='text-md font-semibold mb-4'>Từ {Number(hotelcategory.price).toLocaleString('vi-VN')}₫</p>
               <Link to={`/hotel-detail/${hotelcategory.hotelId}`}>
                 <button className='bg-blue-500 text-white py-1 px-3 rounded-lg hover:bg-blue-600 transition duration-300'>
                   Đặt phòng ngay

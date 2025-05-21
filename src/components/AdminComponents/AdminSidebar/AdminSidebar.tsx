@@ -17,7 +17,7 @@ export default function AdminSidebar() {
             { text: 'Home', icon: <HomeIcon />, link: '/' },
             { text: 'Hotels', icon: <HotelIcon />, link: '/admin/hotel-list' },
             { text: 'Bookings', icon: <EventIcon />, link: '/admin/bookings' },
-            { text: 'Users', icon: <GroupIcon />, link: '/admin/users' },
+            { text: 'Room', icon: <SettingsIcon />, link: '/admin/room' },
             { text: 'Settings', icon: <SettingsIcon />, link: '/admin/settings' }
           ].map((item) => (
             <li key={item.text} className='flex items-center p-3 rounded-md hover:bg-gray-100 cursor-pointer'>

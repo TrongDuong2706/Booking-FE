@@ -97,8 +97,11 @@ export default function Room() {
                   </div>
                   <div className='flex justify-between items-center'>
                     <div>
-                      <span className='text-red-500 line-through mr-2'>{room.price} VND</span>
-                      <span className='font-bold'>{room.price} VND</span>
+                      <span className='text-red-500 line-through mr-2'>
+                        {(Number(room.price) + 500000).toLocaleString('vi-VN')}₫
+                      </span>
+
+                      <span className='font-bold'>{Number(room.price).toLocaleString('vi-VN')}₫</span>
                     </div>
                     <Link
                       to={`/payment/${room.id}`}
